@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct AppStartingView: View {
+    @State private var viewModel: AppStartingViewModel = AppStartingViewModel()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            if viewModel.shouldShowWelcomeView {
+                WelcomeView(
+                    shouldShowWelcomeView: $viewModel.shouldShowWelcomeView
+                )
+            } else {
+                HomeTabView()
+            }
         }
-        .padding()
+        .animation(.easeIn, value: viewModel.shouldShowWelcomeView)
     }
 }
 
