@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AppStartingView.swift
 //  IncomeUltra
 //
 //  Created by Dylan on 21/8/25.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AppStartingView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -20,5 +20,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    AppStartingView()
 }
