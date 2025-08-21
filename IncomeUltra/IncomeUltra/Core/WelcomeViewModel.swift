@@ -6,11 +6,13 @@
 //
 
 import Observation
+import Factory
 
 @MainActor
 @Observable
 final class WelcomeViewModel {
+    @ObservationIgnored @Injected(\.appInfoStore) private var appInfoStore
     func getAppName() -> String {
-        return "Income Ultra"
+        return appInfoStore.name
     }
 }
