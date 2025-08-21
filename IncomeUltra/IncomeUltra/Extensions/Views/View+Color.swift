@@ -7,13 +7,33 @@
 
 import SwiftUI
 
+struct AppColorTheme {
+    let accent: Color
+    let alternateAccent: Color
+    let viewBackground: Color
+    let cellBackground: Color
+    let text: Color
+    let secondaryText: Color
+    let accentContrastText: Color
+    let primaryAction: Color
+    let neutralAction: Color
+    let destructive: Color
+    let success: Color
+    let warning: Color
+    let info: Color
+    let error: Color
+    let inProgress: Color
+    let divider: Color
+    let miscellaneous: Color
+}
+
 extension Color {
     static let appColorTheme: AppColorTheme = main
 }
 
 extension Color {
     static var main: AppColorTheme {
-        AppColorTheme(
+        .init(
             accent: Color.accent,
             alternateAccent: Color.alternateAccent,
             viewBackground: Color.viewBackground,
@@ -35,22 +55,15 @@ extension Color {
     }
 }
 
-struct AppColorTheme {
-    let accent: Color
-    let alternateAccent: Color
-    let viewBackground: Color
-    let cellBackground: Color
-    let text: Color
-    let secondaryText: Color
-    let accentContrastText: Color
-    let primaryAction: Color
-    let neutralAction: Color
-    let destructive: Color
-    let success: Color
-    let warning: Color
-    let info: Color
-    let error: Color
-    let inProgress: Color
-    let divider: Color
-    let miscellaneous: Color
+
+fileprivate struct Preview: View {
+    var body: some View {
+        RoundedRectangle(cornerRadius: 8.0)
+            .frame(width: 200.0, height: 200.0)
+            .foregroundStyle(Color.appColorTheme.accent)
+    }
+}
+
+#Preview {
+    Preview()
 }
