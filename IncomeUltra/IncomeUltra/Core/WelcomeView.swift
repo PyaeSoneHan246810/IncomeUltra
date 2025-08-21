@@ -29,6 +29,7 @@ private extension WelcomeView {
         Text(viewModel.getAppName())
             .font(.title)
             .fontWeight(.bold)
+            .foregroundStyle(Color.appColorTheme.text)
     }
     var welcomeImageView: some View {
         Image(.welcome)
@@ -41,7 +42,7 @@ private extension WelcomeView {
             .multilineTextAlignment(.center)
             .font(.title3)
             .fontWeight(.medium)
-            .foregroundStyle(Color.gray)
+            .foregroundStyle(Color.appColorTheme.secondaryText)
     }
     var getStartedButtonView: some View {
         Button {
