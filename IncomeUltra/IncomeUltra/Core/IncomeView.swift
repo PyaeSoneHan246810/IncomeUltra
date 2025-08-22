@@ -58,60 +58,68 @@ private extension IncomeView {
         hourlyInputView
         hourlyOutputView
     }
+    @ViewBuilder
     var salaryInputView: some View {
-        VStack(spacing: 12.0) {
-            InputView(
-                info: InputView.InputViewInfo(
-                    name: "Yearly Gross ($)",
-                    placeholder: "$ 65,000",
-                    format: .number
-                ),
-                value: $viewModel.salaryInput.yearlyGross
-            )
-            InputView(
-                info: InputView.InputViewInfo(
-                    name: "Take Home (%)",
-                    placeholder: "83.00 %",
-                    isRequired: false,
-                    format: .percent
-                ),
-                value: $viewModel.salaryInput.takehomePercentage
-            )
-        }
+        InputView(
+            info: InputView.InputViewInfo(
+                name: "Yearly Gross ($)",
+                placeholder: "$ 65,000",
+                format: .number
+            ),
+            value: $viewModel.salaryInput.yearlyGross
+        )
+        InputView(
+            info: InputView.InputViewInfo(
+                name: "Take Home (%)",
+                placeholder: "83.00 %",
+                isRequired: false,
+                format: .percent
+            ),
+            value: $viewModel.salaryInput.takehomePercentage
+        )
     }
+    @ViewBuilder
     var salaryOutputView: some View {
-        EmptyView()
+        SingleOutputView(
+            name: "Hourly Wage",
+            value: viewModel.salaryOutput.hourlyWage
+        )
+        PayOutputView(
+            pay: viewModel.salaryOutput.grossPay
+        )
+        PayOutputView(
+            pay: viewModel.salaryOutput.takehomePay
+        )
     }
+    @ViewBuilder
     var hourlyInputView: some View {
-        VStack(spacing: 12.0) {
-            InputView(
-                info: InputView.InputViewInfo(
-                    name: "Hourly Wage ($)",
-                    placeholder: "$ 36.50",
-                    format: .number
-                ),
-                value: $viewModel.hourlyInput.hourlyWage
-            )
-            InputView(
-                info: InputView.InputViewInfo(
-                    name: "Hours per Week",
-                    placeholder: "40",
-                    format: .number
-                ),
-                value: $viewModel.hourlyInput.hoursPerWeek
-            )
-            InputView(
-                info: InputView.InputViewInfo(
-                    name: "Take Home (%)",
-                    placeholder: "83.00 %",
-                    isRequired: false,
-                    format: .percent
-                ),
-                value: $viewModel.hourlyInput.takehomePercentage
-            )
-            if viewModel.shouldShowOvertimeCheck {
-                overtimeRateToggleView
-            }
+        InputView(
+            info: InputView.InputViewInfo(
+                name: "Hourly Wage ($)",
+                placeholder: "$ 36.50",
+                format: .number
+            ),
+            value: $viewModel.hourlyInput.hourlyWage
+        )
+        InputView(
+            info: InputView.InputViewInfo(
+                name: "Hours per Week",
+                placeholder: "40",
+                format: .number
+            ),
+            value: $viewModel.hourlyInput.hoursPerWeek
+        )
+        InputView(
+            info: InputView.InputViewInfo(
+                name: "Take Home (%)",
+                placeholder: "83.00 %",
+                isRequired: false,
+                format: .percent
+            ),
+            value: $viewModel.hourlyInput.takehomePercentage
+        )
+        if viewModel.shouldShowOvertimeCheck {
+            overtimeRateToggleView
         }
     }
     var overtimeRateToggleView: some View {
@@ -126,8 +134,14 @@ private extension IncomeView {
                 .labelsHidden()
         }
     }
+    @ViewBuilder
     var hourlyOutputView: some View {
-        EmptyView()
+        PayOutputView(
+            pay: viewModel.hourlyOutput.grossPay
+        )
+        PayOutputView(
+            pay: viewModel.hourlyOutput.takehomePay
+        )
     }
 }
 

@@ -29,7 +29,7 @@ extension Pay {
         case gross
         case takehome
     }
-    var description: String {
+    var incomeTypeDescription: String {
         switch incomeType {
         case .gross: "Gross"
         case .takehome: "Takehome"
