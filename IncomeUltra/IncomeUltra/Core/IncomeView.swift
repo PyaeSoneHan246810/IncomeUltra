@@ -10,8 +10,8 @@ import SwiftUI
 struct IncomeView: View {
     @State private var viewModel: IncomeViewModel = IncomeViewModel()
     var body: some View {
-        content
-            .navigationBarTitleDisplayMode(.large)
+        contentView
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 toolbarContent
             }
@@ -19,13 +19,6 @@ struct IncomeView: View {
 }
 
 private extension IncomeView {
-    var content: some View {
-        ScrollView {
-            VStack(spacing: 16.0) {
-                
-            }
-        }
-    }
     @ToolbarContentBuilder
     var toolbarContent: some ToolbarContent {
         ToolbarItem(placement: .principal) {
@@ -36,6 +29,44 @@ private extension IncomeView {
             }
             .fontWeight(.semibold)
         }
+    }
+    var contentView: some View {
+        ScrollView {
+            VStack(spacing: 16.0) {
+                IncomePickerView($viewModel.selectedIncomeType)
+                switch viewModel.selectedIncomeType {
+                case .salary:
+                    salaryView
+                case .hourly:
+                    horulyView
+                }
+            }
+        }
+        .contentMargins(.vertical, 8.0)
+        .contentMargins(.horizontal, 16.0)
+        .scrollIndicators(.hidden)
+    }
+    @ViewBuilder
+    var salaryView: some View {
+        salaryInputView
+        salaryOutputView
+    }
+    @ViewBuilder
+    var horulyView: some View {
+        hourlyInputView
+        hourlyOutputView
+    }
+    var salaryInputView: some View {
+        Text("Salary Input View")
+    }
+    var salaryOutputView: some View {
+        Text("Salary Output View")
+    }
+    var hourlyInputView: some View {
+        Text("Hourly Input View")
+    }
+    var hourlyOutputView: some View {
+        Text("Hourly Output View")
     }
 }
 

@@ -13,7 +13,7 @@ import Factory
 final class IncomeViewModel {
     @ObservationIgnored @Injected(\.incomeStore) private var incomeStore
     @ObservationIgnored @Injected(\.appInfoStore) private var appInfoStore
-    
+    var selectedIncomeType: IncomePickerView.IncomeType = .salary
     var appName: String {
         appInfoStore.name
     }
