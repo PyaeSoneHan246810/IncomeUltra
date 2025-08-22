@@ -45,6 +45,8 @@ private extension IncomeView {
         .contentMargins(.vertical, 8.0)
         .contentMargins(.horizontal, 16.0)
         .scrollIndicators(.hidden)
+        .scrollContentBackground(.hidden)
+        .background(Color.appColorTheme.viewBackground)
     }
     @ViewBuilder
     var salaryView: some View {
@@ -57,16 +59,75 @@ private extension IncomeView {
         hourlyOutputView
     }
     var salaryInputView: some View {
-        Text("Salary Input View")
+        VStack(spacing: 12.0) {
+            InputView(
+                info: InputView.InputViewInfo(
+                    name: "Yearly Gross ($)",
+                    placeholder: "$ 65,000",
+                    format: .number
+                ),
+                value: $viewModel.salaryInput.yearlyGross
+            )
+            InputView(
+                info: InputView.InputViewInfo(
+                    name: "Take Home (%)",
+                    placeholder: "83.00 %",
+                    isRequired: false,
+                    format: .percent
+                ),
+                value: $viewModel.salaryInput.takehomePercentage
+            )
+        }
     }
     var salaryOutputView: some View {
-        Text("Salary Output View")
+        EmptyView()
     }
     var hourlyInputView: some View {
-        Text("Hourly Input View")
+        VStack(spacing: 12.0) {
+            InputView(
+                info: InputView.InputViewInfo(
+                    name: "Hourly Wage ($)",
+                    placeholder: "$ 36.50",
+                    format: .number
+                ),
+                value: $viewModel.hourlyInput.hourlyWage
+            )
+            InputView(
+                info: InputView.InputViewInfo(
+                    name: "Hours per Week",
+                    placeholder: "40",
+                    format: .number
+                ),
+                value: $viewModel.hourlyInput.hoursPerWeek
+            )
+            InputView(
+                info: InputView.InputViewInfo(
+                    name: "Take Home (%)",
+                    placeholder: "83.00 %",
+                    isRequired: false,
+                    format: .percent
+                ),
+                value: $viewModel.hourlyInput.takehomePercentage
+            )
+            if viewModel.shouldShowOvertimeCheck {
+                overtimeRateToggleView
+            }
+        }
+    }
+    var overtimeRateToggleView: some View {
+        HStack {
+            Text("Overtime Rate")
+                .font(.callout)
+                .fontWeight(.medium)
+                .foregroundStyle(.accent)
+            Spacer()
+            Toggle(isOn: $viewModel.hourlyInput.overtime, label: {})
+                .tint(Color.appColorTheme.accent)
+                .labelsHidden()
+        }
     }
     var hourlyOutputView: some View {
-        Text("Hourly Output View")
+        EmptyView()
     }
 }
 
