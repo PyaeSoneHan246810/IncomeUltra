@@ -1,4 +1,4 @@
-# Recipes iOS App
+# Income Ultra
 ## Project from Udemy Course by Raul Gutierrez
 
 <img width="240" height="240" src="https://github.com/user-attachments/assets/74d214a0-8bd7-4a3c-bdac-0264cc5982d5"/>
@@ -23,7 +23,7 @@
 
 ### Dark Theme
 
-<img width=200" src="https://github.com/user-attachments/assets/fe0ce422-7ac8-4e73-b76a-2f6024ebb98d"/>
+<img width="200" src="https://github.com/user-attachments/assets/fe0ce422-7ac8-4e73-b76a-2f6024ebb98d"/>
 
 <img width="200" src="https://github.com/user-attachments/assets/4cb15762-60dc-42b5-80e1-10cc8fe4968f"/>
 
