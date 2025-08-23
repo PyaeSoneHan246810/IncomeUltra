@@ -87,10 +87,10 @@ private extension IncomeView {
             value: viewModel.salaryOutput.hourlyWage
         )
         PayOutputView(
-            pay: viewModel.salaryOutput.grossPay
+            pay: viewModel.salaryOutput.takehomePay
         )
         PayOutputView(
-            pay: viewModel.salaryOutput.takehomePay
+            pay: viewModel.salaryOutput.grossPay
         )
     }
     @ViewBuilder
@@ -139,10 +139,10 @@ private extension IncomeView {
     @ViewBuilder
     var hourlyOutputView: some View {
         PayOutputView(
-            pay: viewModel.hourlyOutput.grossPay
+            pay: viewModel.hourlyOutput.takehomePay
         )
         PayOutputView(
-            pay: viewModel.hourlyOutput.takehomePay
+            pay: viewModel.hourlyOutput.grossPay
         )
     }
 }
