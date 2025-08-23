@@ -47,6 +47,7 @@ private extension IncomeView {
         .contentMargins(.horizontal, 16.0)
         .scrollIndicators(.hidden)
         .scrollContentBackground(.hidden)
+        .infinityFrame()
         .background(Color.appColorTheme.viewBackground)
     }
     @ViewBuilder

@@ -29,7 +29,7 @@ struct WelcomeView: View {
 
 private extension WelcomeView {
     var titleView: some View {
-        Text(viewModel.getAppName())
+        Text(viewModel.appName)
             .font(.title)
             .fontWeight(.bold)
             .foregroundStyle(Color.appColorTheme.text)

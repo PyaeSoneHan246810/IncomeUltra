@@ -22,6 +22,7 @@ extension AppCornerRadius {
     static let button: Self = .init(value: 8.0)
     static let textField: Self = .init(value: 8.0)
     static let cell: Self = .init(value: 8.0)
+    static let image: Self = .init(value: 8.0)
 }
 
 fileprivate struct Preview: View {

@@ -12,7 +12,8 @@ import Factory
 @Observable
 final class WelcomeViewModel {
     @ObservationIgnored @Injected(\.appInfoStore) private var appInfoStore
-    func getAppName() -> String {
-        return appInfoStore.name
+    
+    var appName: String {
+        appInfoStore.name
     }
 }

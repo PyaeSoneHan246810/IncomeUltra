@@ -17,8 +17,6 @@ struct AppInfoLiveStore {
     }
     let description: String = "Income Ultra calculates your income from hourly rates or salary, including overtime, and provides detailed financial breakdowns."
     let developer: String = "Pyae Sone Han"
-    let website: String = "https://example.com"
-    let agreements: Agreements = .init()
     var version: String {
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             return version
@@ -33,6 +31,8 @@ struct AppInfoLiveStore {
             return "-"
         }
     }
+    let website: String = "https://example.com"
+    let agreements: Agreements = .init()
 }
 
 extension AppInfoLiveStore {
