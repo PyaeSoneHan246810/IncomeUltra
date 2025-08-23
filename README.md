@@ -1,6 +1,8 @@
 # Income Ultra
 ## Project from Udemy Course by Raul Gutierrez
 
+This project was built by following a Udemy course by Raul Gutierrez. All code is written by me while learning, with some modifications and extensions.
+
 <img width="240" height="240" src="https://github.com/user-attachments/assets/74d214a0-8bd7-4a3c-bdac-0264cc5982d5"/>
 
 ## Used Technologies
